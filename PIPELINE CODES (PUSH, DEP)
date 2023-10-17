@@ -11,18 +11,18 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t $img .'
+                sh "docker build -t $img ."
             }
         }
         stage('tag') {
             steps {
-                sh 'docker tag $img $repo'
+                sh "docker tag $img $repo"
             }
         }
         stage('push') {
             steps {
                 sh 'docker login -u rahamshaik -p Raham@#123'
-                sh 'docker push $repo'
+                sh "docker push $repo"
             }
         }
     }
